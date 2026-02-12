@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # update-cavtc.sh
 
 app='cavtc'

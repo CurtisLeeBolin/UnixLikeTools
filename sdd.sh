@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # sd
 # Downloads a stream
 # sd <link>

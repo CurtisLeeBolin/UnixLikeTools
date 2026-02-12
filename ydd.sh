@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # ydd
 # Downloads all videos of a channel/user/playlist or list of videos with date
 # ydd <link> <link> ...

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 FORCED_TRACKS=2
 IN_DIR="0in"

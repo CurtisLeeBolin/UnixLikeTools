@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # ydpa
 # Downloads all audio of a playlist with index
 # ydpa <link> <link> ...

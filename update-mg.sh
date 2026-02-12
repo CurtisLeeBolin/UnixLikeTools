@@ -1,16 +1,18 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # update-mg.sh
 
-if [ ! -d ~/.local/lib/mg/ ]; then
-  python -m venv ~/.local/lib/mg
-fi
-
-~/.local/lib/mg/bin/python -m pip install --upgrade pip
-
-if [ -d ~/Projects/mg/ ]; then
-  ~/.local/lib/mg/bin/python -m pip install ~/Projects/mg/
-else
-  ~/.local/lib/mg/bin/python -m pip install git+https://github.com/CurtisLeeBolin/mg.git
-fi
-
 cp ~/.local/lib/mg/bin/mg ~/.local/bin/
+
+app='mg'
+
+if [ -d ~/.local/lib/"${app}"/ ]; then
+  rm -r ~/.local/lib/"${app}"
+fi
+
+python -m venv ~/.local/lib/"${app}"
+
+~/.local/lib/"${app}"/bin/python -m pip install --upgrade pip
+
+~/.local/lib/"${app}"/bin/python -m pip install ~/Projects/"${app}"/
+
+cp ~/.local/lib/"${app}"/bin/"${app}" ~/.local/bin/

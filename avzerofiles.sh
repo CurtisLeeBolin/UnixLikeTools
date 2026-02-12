@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Zero out all files in a directory
 
 echo "Are you sure? [y/n] "

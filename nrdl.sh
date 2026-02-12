@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [ -z "$1" ]; then
   ~/.local/lib/nrdl/bin/cyberdrop-dl --config-file ~/.config/nrdl/settings.yaml

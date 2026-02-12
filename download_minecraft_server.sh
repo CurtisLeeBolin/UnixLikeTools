@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 curl -fsSL https://launchermeta.mojang.com/mc/game/version_manifest.json \
   | jq -rn 'first( inputs | .versions[] | select(.type == "release") )' \

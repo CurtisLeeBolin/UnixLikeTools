@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # self_signed_cert_gen.sh
 #
 # Instructions:

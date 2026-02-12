@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # ydpao
 # Downloads all audio of a playlist with index
 # ydpao <link> <link> ...

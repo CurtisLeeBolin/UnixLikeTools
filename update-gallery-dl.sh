@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # update-gallery-dl.sh
 
 app='gallery-dl'

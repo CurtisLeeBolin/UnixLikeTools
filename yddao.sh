@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # yddao
 # Downloads all audio of a channel/user/playlist or list of videos with date
 # yddao <link> <link> ...

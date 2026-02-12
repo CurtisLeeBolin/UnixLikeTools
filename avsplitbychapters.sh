@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Use this to split by chapter.
 # Once you know last chapter of each
 # episode, run the following:

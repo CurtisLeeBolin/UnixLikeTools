@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # cddl.sh
 
 command_array=(

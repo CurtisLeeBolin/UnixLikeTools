@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # update-nrtc.sh
 
 if [ ! -d ~/.local/lib/nrtc/ ]; then

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 print_help () {
   echo "rngdirname - renames dirs to random strings"

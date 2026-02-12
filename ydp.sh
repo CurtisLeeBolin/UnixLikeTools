@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # ydp
 # Downloads all videos of a playlist with index
 # ydp <link> <link> ...

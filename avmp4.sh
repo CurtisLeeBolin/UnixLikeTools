@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 INPUT_DIR=0in
 OUTPUT_DIR=0out

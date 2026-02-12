@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # yda
 # Downloads all audio of a channel/user/playlist or list of videos
 # yda <link> <link> ...
