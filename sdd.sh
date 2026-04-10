@@ -26,24 +26,25 @@ command_array_clip=(
   'best'
 )
 
+command_array_stream_soop=(
+  'streamlink'
+  '--hls-live-restart'
+  '--ffmpeg-start-at-zero'
+  '--force'
+  '--http-cookies-file' 'cookies.txt'
+  '--output' '{time:%Y%m%d%H%M%S} {author} - {title} [{id}].mp4'
+  "${url}"
+  'best'
+)
+
 get_stream () {
-  if [[ ! "${1}" == *"/clip/"* ]]; then
-    "${command_array_stream[@]}"
-  else
+  if [[ "${1}" == *"/clip/"* ]]; then
     "${command_array_clip[@]}"
+  elif [[ "${1}" == *"sooplive.com/"* ]]; then
+    "${command_array_stream_soop[@]}"
+  else
+    "${command_array_stream[@]}"
   fi
 }
-
-#if [[ "${@}" =~ ( |\') ]]; then
-#  arr=(${@})
-#  for each in "${arr[@]}"; do
-#    get_stream ${each}
-#    max=60
-#    min=15
-#    sleep $(shuf -i $min-$max -n 1)
-#  done
-#else
-#  get_stream ${@}
-#fi
 
 get_stream "${url}"
