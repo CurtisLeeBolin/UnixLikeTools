@@ -13,6 +13,6 @@ cp -a ~/.pyenv/versions/3.12.13 ~/.local/lib/"${app}"
 ~/.local/lib/"${app}"/bin/python -m pip install --upgrade pip
 
 #~/.local/lib/"${app}"/bin/python -m pip install git+https://github.com/datawhores/OF-Scraper.git
-~/.local/lib/"${app}"/bin/python -m pip install "${app}"
+~/.local/lib/"${app}"/bin/python -m pip install "${app}[ffmpeg]"
 
 cp ~/.local/lib/"${app}"/bin/"${app}" ~/.local/bin/
