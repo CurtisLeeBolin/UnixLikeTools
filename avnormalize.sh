@@ -17,6 +17,6 @@ for file in *; do
   [[ "${match}" == 'false' ]] && continue
 
   mv "${file}" 0in/"${file}"
-  volume=$(ffmpeg -i 0in/"${file}" -video_disable -subtitle_disable -filter:a volumedetect -f null /dev/null 2>&1 | grep 'max_volume' | awk '{print $5}')
+  volume=$(ffmpeg -i 0in/"${file}" -vn -sn -filter:a volumedetect -f null /dev/null 2>&1 | grep 'max_volume' | awk '{print $5}')
   ffmpeg -i 0in/"${file}" -codec:v copy -filter:a volume="${volume:1}" -codec:a libopus -codec:s copy 0out/"${file}"
 done
