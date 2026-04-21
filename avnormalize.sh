@@ -9,7 +9,7 @@ for file in *; do
 
   match='false'
   for ext in "${file_type_array[@]}"; do
-    if [[ "${file,,}" == *"${ext,,}" ]]; then
+    if [[ "${file,,}" == *"${ext}" ]]; then
       match='true'
       break
     fi
