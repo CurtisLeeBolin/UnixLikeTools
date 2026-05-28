@@ -10,12 +10,10 @@ command_array=(
 
 if [[ "$1" == '--images' ]]; then
   shift
-  command_array+=('--filter' 'Images,Videos')
-else
-  command_array+=('--filter' 'Videos')
+  command_array+=('--mediatype' 'Images,Videos')
 fi
 
 command_array+=('--username' ${1})
+shift
 
-
-"${command_array[@]}"
+"${command_array[@]}" ${@}
