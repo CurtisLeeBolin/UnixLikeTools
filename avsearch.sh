@@ -40,7 +40,7 @@ search () {
 
 search_verbose () {
   result_array=()
-  mapfile -d '' result_array < <(find ${path_to_search} -type f -regextype posix-egrep -iregex "${regex_string}" -print0 2>/dev/null)
+  mapfile -d '' result_array < <(find ${path_to_search} -type f -regextype posix-egrep -iregex "${regex_string}" -print0 2>/dev/null | sort -z)
   for result in "${result_array[@]}"; do
     echo "${result}"
     file_data_array=($(ls -lh --full-time "${result}"))
