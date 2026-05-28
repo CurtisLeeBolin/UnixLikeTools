@@ -83,7 +83,7 @@ function clean {
   # find vidoes with the same base name and rename
   find -maxdepth 1 -type f | sort | base_rename
 
-  fdupes -rdN ./
+  fdupes --recurse --delete --noprompt ./
   rmdir --ignore-fail-on-non-empty images
 }
 
