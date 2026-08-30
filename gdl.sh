@@ -6,6 +6,9 @@ command_array=(
   #'--retries' '-1'
   '--sleep' '2.3-15.7'
   '--user-agent' 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36'
+  '--destination' '.'
+  '--directory' ''
+  '--filename' '{date:D%Y%m%d} {author[name]|author|user[name]|user|uploader|Unknown} - {content|text|title|caption|NoTitle:[b:150]} [{tweet_id|id|image_id|filename}].{extension}'
 )
 
 if [ -f cookies.txt ]; then
