@@ -8,12 +8,20 @@ command_array=(
   '--after' '2000'
 )
 
-if [[ "$1" == '--images' ]]; then
+
+
+if [[ "$1" == '--media-id' ]]; then
   shift
-  command_array+=('--mediatype' 'Images,Videos')
+  command_array+=('--media-id' "${1}")
+  shift
+else
+  if [[ "$1" == '--images' ]]; then
+    shift
+    command_array+=('--mediatype' 'Images,Videos')
+  fi
 fi
 
-command_array+=('--username' ${1})
+command_array+=('--username' "${1}")
 shift
 
 "${command_array[@]}" ${@}
