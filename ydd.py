@@ -66,9 +66,9 @@ def manual_mux(base_path, title):
     if os.path.exists(desc_path): os.remove(desc_path)
 
 
-def download(urls, limit_1080p, live_from_start, chapters):
+def download(urls, remove_1080p_limit, live_from_start, chapters):
   ydl_opts = {
-    'format': 'bv[height<=1080]+ba/b[height<=1080]' if limit_1080p else 'bestvideo+bestaudio/best',
+    'format': 'bestvideo+bestaudio/best' if remove_1080p_limit else 'bv[height<=1080]+ba/b[height<=1080]/best',
     'merge_output_format': None,
     'fixup': 'never',
     'writesubtitles': True,
@@ -87,10 +87,14 @@ def download(urls, limit_1080p, live_from_start, chapters):
     with yt_dlp.YoutubeDL(opts) as ydl:
       info = ydl.extract_info(url, download=True)
 
-      if 'entries' in info:
-        entry = info['entries'][0]
+      if info:
+        if 'entries' in info:
+          entry = info['entries'][0]
+        else:
+          entry = info
       else:
-        entry = info
+        print(f'\n\nSkipping\n{url}\n\n')
+        continue
 
       title = entry.get('title', 'Video')
       dest = entry.get('requested_downloads', [{}])[0].get('filepath') or ydl.prepare_filename(entry)
@@ -105,9 +109,22 @@ def download(urls, limit_1080p, live_from_start, chapters):
 if __name__ == '__main__':
   parser = argparse.ArgumentParser()
   parser.add_argument('urls', nargs='+')
-  parser.add_argument('--1080p', action='store_true', dest='limit_1080p')
-  parser.add_argument('--from-start', action='store_true')
-  parser.add_argument('--chapters', action='store_true')
+  parser.add_argument(
+    '--highest',
+    action='store_true',
+    dest='remove_1080p_limit',
+    help='Remove 1080p limit.'
+  )
+  parser.add_argument(
+    '--from-start',
+    action='store_true',
+    help='Capture stream from the start.'
+  )
+  parser.add_argument(
+    '--chapters',
+    action='store_true',
+    help='Write chapter data.'
+  )
   args = parser.parse_args()
-  download(args.urls, args.limit_1080p, args.from_start, args.chapters)
+  download(args.urls, args.remove_1080p_limit, args.from_start, args.chapters)
 
