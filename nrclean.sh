@@ -63,7 +63,7 @@ function clean {
   find ./* -type f -not -iregex '.*\(jpg\|jpeg\|png\|gif\|webp\|mkv\|mp4\|m4v\|mov\|avi\|wmv\|webm\|ts\|info\)' -exec rm {} \;
 
   # remove directories that aren't ./images/
-  find ./* -type d -not -name 'images' -exec rm -r {} \; # ./* to not return . directory
+  find ./* -type d -not -name 'images' -prune -exec rm -r {} \; # ./* to not return . directory
 
   # find uppercase image file extensions and rename
   find -path './images/*' -type f -regextype posix-extended -regex '.*[A-Z].{,3}$' | \
