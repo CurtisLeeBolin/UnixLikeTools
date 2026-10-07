@@ -34,7 +34,7 @@ def find_files_by_extension(directory_path, target_extension):
 
 def runSubprocess(command):
   with subprocess.Popen(
-    command, stderr=subprocess.PIPE, universal_newlines=True
+    command, stderr=subprocess.PIPE, universal_newlines=True, errors='replace'
   ) as p:
     stderrList = ['']*256
     for line in p.stderr:
