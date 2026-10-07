@@ -15,7 +15,7 @@ check_video () {
     d_min="${duration/??:/}"
     d_min_s=$(( 10#${d_min/:*/} * 60 ))
     d_s="${duration//*:/}"
-    d_s=$(bc -l <<<"${d_hour_s}+${d_min_s}+${d_s}")
+    d_s=$(awk "BEGIN {print ${d_hour_s} + ${d_min_s} + ${d_s}}")
   else
     d_s='--'
   fi
