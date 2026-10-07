@@ -63,7 +63,7 @@ def main():
       if not duration == 'N/A':
         x = time.strptime(duration.split('.')[0], '%H:%M:%S')
         s = int(datetime.timedelta(hours=x.tm_hour,minutes=x.tm_min,seconds=x.tm_sec).total_seconds())
-        if s < 240:
+        if s < 60:
           print(f'{s:3d}s  {file}')
           pathlib.Path(file).unlink(missing_ok=True)
       else:
