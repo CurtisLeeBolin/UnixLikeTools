@@ -1,4 +1,7 @@
-#!/usr/bin/env python3
+#!/bin/sh
+''':'
+exec "$HOME/.local/lib/gallery-dl/bin/python" "$(command -v "$0")" "$@"
+'''
 
 import sys
 import os
@@ -26,7 +29,7 @@ def setup_gallery_dl_config(args):
   if args.images:
     config.set((), 'filter', None)
   else:
-    config.set((), 'filter', 'extension in ('webm', 'ogg', 'mp4', 'm4v', 'mov')')
+    config.set((), 'filter', 'extension in ("webm", "ogg", "mp4", "m4v", "mov")')
 
   # 4. Resume Cursor mapping
   if args.resume:
@@ -112,7 +115,8 @@ def main():
     try:
       CustomFilenameJob(url).run()
     except Exception as e:
-      print(f'Error processing target '{url}': {e}', file=sys.stderr)
+      print(f'Error processing target:\n{url}', file=sys.stderr)
+      print(f'Exception:\n{e}', file=sys.stderr)
 
 if __name__ == '__main__':
   main()
